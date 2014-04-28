@@ -24,11 +24,10 @@ Include `classified-attrs` in your node's `run_list`:
 Let's assume you have a JSON file, ```/tmp/data.json``` that contains data you'd like to load into @node for use in your recipes:
 
 ```json
-/tmp/data.json
-
 {
-  'sensitive_key': "sekret data"
-}```
+  "sensitive_key": "sekret data"
+}
+```
 
 Load and use that data with recipe code like:
 
@@ -55,4 +54,5 @@ Contributing
 License and Authors
 -------------------
 Author: Erich Smith, 2014
+
 Based on [irccloud/blacklist-node-attrs](https://github.com/irccloud/blacklist-node-attrs)
