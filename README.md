@@ -5,7 +5,7 @@ This cookbook provides a library routine for loading Ruby hash data into the Nod
 Why do this?
 ------------
 
-Perhaps you'd like to store your sensitive configuration data somewhere other than the Chef server, via an encrypted data bag, Chef Vault, or the like. Perhaps you would like to query a key-value store, or perform your own sensitive Ohai-like automated attribute gathering. This library assists by providing a general mechanism to load your data.
+Perhaps you'd like to store your sensitive configuration data somewhere other than on the Chef server (via an encrypted data bag, Chef Vault, etc.) Perhaps you would like to query a key-value store, or perform your own sensitive Ohai-like automated attribute gathering. This library assists by providing a general mechanism to load your data.
 
 Usage
 -----
