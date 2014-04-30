@@ -1,27 +1,24 @@
 classified-attrs Cookbook
 =========================
-This cookbook provides a library routine for loading Ruby hash data into the Node attribute hash in such a way that attributes are available with minimal fuss to recipes at run-time, but are not saved to the server at the end of a chef-run.
+This cookbook implements a library mechanism for loading attributes into Chef's
+override_attributes hash for the duration of a chef run, but without the side effect of
+saving those attributes to the node at the completion of a chef run.
 
 Why do this?
 ------------
 
-Perhaps you'd like to store your sensitive configuration data somewhere other than on the Chef server (via an encrypted data bag, Chef Vault, etc.) Perhaps you would like to query a key-value store, or perform your own sensitive Ohai-like automated attribute gathering. This library assists by providing a general mechanism to load your data.
+Perhaps you'd like to store your sensitive configuration data somewhere other than on the Chef server (via an encrypted data bag, Chef Vault, etc.) Maybe you have sensitive data pre-baked into your image. Perhaps you would like to query a key-value store, or perform your own sensitive Ohai-like automated attribute gathering. This library assists by providing a general mechanism to load your sensitive data.
 
 Usage
 -----
-#### classified-attrs::default
-Include `classified-attrs` in your node's `run_list`:
+#### include_recipe "classified-attrs"
+At the top of your recipe that references a classified attribute, do:
 
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[classified-attrs]"
-  ]
-}
+```ruby
+include_recipe "classified-attrs" 
 ```
 
-Let's assume you have a JSON file, ```/tmp/data.json``` that contains data you'd like to load into @node for use in your recipes:
+Let's assume you have a JSON file, ```/tmp/data.json``` that contains data you'd like to load into ```node``` for use in your recipes:
 
 ```json
 {
@@ -37,7 +34,7 @@ load_secrets(JSON.parse(File.read '/tmp/data.json'))
 resource "do something" do
   ...
   variables({
-    :key => node['sensitive_key']
+    :key => node["sensitive_key"]
   })
 end
 ```
