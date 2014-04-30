@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/easy_diff')
 
 # This library implements a mechanism for loading hashes of attributes into Chef's
-# normal_attributes hash for the duration of a chef run, but without the side effect of
+# override_attributes hash for the duration of a chef run, but without the side effect of
 # saving those attributes to the node at the completion of a chef run.
 
 # To use, first generate a hash of attributes:
