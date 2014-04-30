@@ -7,7 +7,15 @@ saving those attributes to the node at the completion of a chef run.
 Why do this?
 ------------
 
-Perhaps you'd like to store your sensitive configuration data somewhere other than on the Chef server (via an encrypted data bag, Chef Vault, etc.) Maybe you have sensitive data pre-baked into your image. Perhaps you would like to query a key-value store, or perform your own sensitive Ohai-like automated attribute gathering. This library assists by providing a general mechanism to load your sensitive data.
+Perhaps you'd like to store your sensitive configuration data somewhere other than on the Chef server (via an encrypted data bag, Chef Vault, etc.) 
+
+*Maybe:*
+* You have sensitive data pre-baked into your image...
+* You would like to query a key-value store...
+* You need to perform your own sensitive Ohai-like automated attribute gathering... 
+* You've arranged to have sensitive data backed by S3 available to your instance...
+
+This library assists by providing a general mechanism to load your sensitive data.
 
 Usage
 -----
